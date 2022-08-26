@@ -1,10 +1,12 @@
 # FSW-125-Capstone
+This project is part of the FSW-125 Express and Back-end coding class at Bryan University. The capstone work during the last four weeks of the class leverage the skills learned in the React/front-end class taught concurrently with the ExpressJS class. The result is a simple demonstration of using front-end technology to talk to back-end APIs.
 
-This project is part of the FSW-125 Express and Backend coding class at Bryan University.  The capstone work during the last four weeks of the class leverage the skills learned in the React/front-end class taught concurrently with the ExpressJS class. The result is a simple demonstration of using front-end technology to talk to back-end apis. 
+Students build a front-end React page that displays results from a GET-API within Express and allows the user to interact with the POST, PUT, and DELETE APIs. Search functionality also uses the GET-API endpoint with a URL parameter.
 
-Students build a front end React page which displays reuslts from a GET-API within express and allows the user to interact with the POST, PUT, and DELETE apis also.  There also is a search functionality that uses the GET-API endpoint with a URL parameter. 
+The client will run in port 3000, and the server will run on port 9000. The package.json file is updated on the client side to reflect the proxy to port 9000. Both pieces need to be running at the same time to have the application work. Note, when starting the services with nodemon and storing the data in the code, any saving of the files on the server will trigger the data to revert to whatever was in the code, and all modifications will be lost.
 
-The client will run in port 3000 and the server will run on port 9000.  The package.json file is updates on the client side to reflect the proxy to port 9000.  Both pieces need to be running at the same time to have the aplication work. Note, when starting the services with nodemon, and having thedata stored in the code, any saving of the files on the server will trigger the data to revert to what ever was in the code, and all modification will be lost.
+## My role
+I am the instructor for the class. I bring almost two decades of experience in software development to the students and focus not only on the code and structure but also on the context and bigger picture needed when they interview for their first job. 
 
 ## Libraries and tools used
 - React
