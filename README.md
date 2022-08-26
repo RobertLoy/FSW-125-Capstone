@@ -9,12 +9,18 @@ The client will run in port 3000, and the server will run on port 9000. The pack
 I am the instructor for the class. I bring almost two decades of experience in software development to the students and focus not only on the code and structure but also on the context and bigger picture needed when they interview for their first job. 
 
 ## Libraries and tools used
-- React
-- ExpressJS
+- React (frontend)
+- ExpressJS (backend)
+- Node
 - Axios
 - uuid
 - Morgan
-- HTML / CSS
+- Nodemon
+- HTML
+- CSS
+- VS Code for coding
+- Postman for testing API
+- Chrome browser for testing frontend
 
 ## Implementation instructions
 1. Install Node 
