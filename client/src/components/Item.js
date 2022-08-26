@@ -12,9 +12,9 @@ const Item = ({editItem, deleteItem, name, city,  _id}) => {
             { !editToggle ?
                 <>
                     {/* Display template for an item */}
-                    <p class="medium">{name}</p> 
-                    <p class="wide">{city} </p> 
-                    <p class="narrow">
+                    <p className="medium">{name}</p> 
+                    <p className="wide">{city} </p> 
+                    <p className="narrow">
                     <button className="delete-btn" onClick={() => deleteItem(_id)}>Delete</button>
                     <button className="edit-btn" onClick={() => setEditToggle(prevToggle => !prevToggle)}>Edit</button>
                     </p> 

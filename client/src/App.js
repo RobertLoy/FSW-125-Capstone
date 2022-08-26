@@ -4,12 +4,20 @@ import axios from 'axios'
 // Pulls content to make the page layout and components
 import Item from './components/Item'
 import ItemFormHandler from './components/ItemFormHandler'
+import SearchFormHandler from './components/SearchFormHandler'
 
 // Images for the use on the page
 import logo from './images/logo192.png'
 
 // Pulls all the styling from the App.css file
 import './App.css';
+
+// Used to reload all the teams based on the onclick
+// functionality in the button at the bottom of the page
+function refreshPage(){ 
+  console.log("refreshing...")
+  window.location.reload(false)
+}
 
 function App() {
 
@@ -24,7 +32,6 @@ function App() {
     .catch(err => console.log(err))
   }
 
-  
   // Add (POST) items to the Express app
   const addItem = (newItem) => {
     // Endpoint: POST - http://localhost:9000/teams
@@ -49,7 +56,7 @@ function App() {
 
   // Delete (DELETE) items in the Express app
   const deleteItem = (itemId) => {
-    // Endpoint: DELTE - http://localhost:9000/teams/:id
+    // Endpoint: DELETE - http://localhost:9000/teams/:id
     axios.delete(`/teams/${itemId}`)
     .then(res => {
       //Causes-ReRender
@@ -57,6 +64,17 @@ function App() {
     })
     .catch(err => console.log(err))
   }
+
+    // Search (GET) items in the Express app
+    const searchItem = (searchTerm) => {
+      // Grab the text for the name search
+      var searchStringe = searchTerm.name
+      // Endpoint: GET - http://localhost:9000/teams/search/:id
+      axios.get(`/teams/search/${searchStringe}`)
+      // Reload the team list with the returned data
+      .then(res => setItems(res.data))
+      .catch(err => console.log(err))
+    }
 
   // Wait until the DOM loads then run the getItems function
   useEffect(() => { getItems() }, [])
@@ -76,18 +94,22 @@ function App() {
   return (
     <div className="itemContainer">
       <h1>Team React Application</h1>
-      <navbar>
-        <hr />
+      <div>
+          {/* Creates the form found in component/ItemFormHandler.js */}
+          {/* When submitted it calls the addItem function above */}
+          <SearchFormHandler btnText='Search' submit={searchItem}/>
           {/* Creates the form found in component/ItemFormHandler.js */}
           {/* When submitted it calls the addItem function above */}
           <ItemFormHandler btnText='Add a Team' submit={addItem}/>
-        <hr />
-      </navbar>
+      </div>
       {/* Calls the itemList fucntion above */}
       {/* The list is items as defined in component/Item.js */}
       {itemList}
-      <hr />
+      <div className="searchBox">
+        <button className="add-item" onClick={ refreshPage }>Reload All Teams</button>
+      </div>
       <img src={logo} alt="logo" />
+      <p className="finePrint">Prepared for Bryan University - &copy; 2022 for FSW-125</p>
     </div>
   );
 }

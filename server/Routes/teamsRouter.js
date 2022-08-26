@@ -14,7 +14,6 @@ let teams = [
 
 // Create the router
 teamsRouter
-
     // Get All teams
     // Endpoint: GET - http://localhost:9000/teams
     .get('/',(req, res) => {
@@ -26,9 +25,9 @@ teamsRouter
 
     // Get ONE team based in the teamId sent in the URL
     // Endpoint: GET - http://localhost:9000/teams/:teamId
-    .get('/:teamId', (req, res) => {
+    .get('/one/:teamId', (req, res) => {
         console.log("GETTING ONE...")
-        
+    
         // Grab the teamId from the URL
         const teamId = req.params.teamId
         
@@ -39,20 +38,22 @@ teamsRouter
         
         // Send back the one found item from the array
         res.send(singularItem)
-    })
+     })
 
     // Get teams that match a search term
     // Endpoint: SEARCH - http://localhost:9000/teams/search
     // SEARCH is not a supported HTTP Verb in Express
-    .search('/search', (req, res) => {
-        console.log("SEARCING FOR ITEMS ...")
+    .get('/search/:string', (req, res) => {
+        console.log("SEARCHING FOR ITEMS ...")
+
+        // Grab the search term from the URL
+        var searchString = req.params.string
+
+        // Look for the name in the array, and find all that match
+        const filteredItems = teams.filter(team => team.name.toLowerCase().includes(searchString))
         
-                
-        // Grab the new team JSON content from the SEARCH body
-        const itemName = req.body
-        
-        const filteredItems = items.filter(item => item.name === itemName)
         // Send back all the matched teams from the array
+        console.log(filteredItems)
         res.send(filteredItems)
     })
     

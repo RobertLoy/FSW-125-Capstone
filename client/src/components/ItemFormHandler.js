@@ -13,6 +13,7 @@ const ItemFormHandler = ({name, city, _id, btnText, submit}) => {
 
     // Handles form submission
     const handleSubmit = (e) => {
+        console.log("...in handleSubmit (Item)")
         e.preventDefault()
         submit(inputs, _id);
         setInputs(initialInputs)
@@ -21,7 +22,8 @@ const ItemFormHandler = ({name, city, _id, btnText, submit}) => {
     return(
         // Form used for updating an item 
         // When button clicked, calls handleSubmit function above
-        <form onSubmit={handleSubmit}>
+        <div className="addBox">
+            <form onSubmit={handleSubmit}>
             <input
             type='text'
             name='name'
@@ -42,6 +44,7 @@ const ItemFormHandler = ({name, city, _id, btnText, submit}) => {
             &nbsp;&nbsp;
             <button className="add-item">{btnText}</button>
         </form>
+        </div>
     )
 }
 

@@ -29,10 +29,16 @@ navbar {
 }
 
 .item {
-  width: 800px;
-  margin: 10px 5px 10px 5px;
+  width: 700px;
+  margin: 0px;
   display: inline-block;
   border-top: solid 1px #000;
+}
+
+.item > p {
+  margin: 0px;
+  margin-top: 5px;
+
 }
 .item > p.wide {
     width: 400px;
@@ -52,6 +58,43 @@ navbar {
   text-align: left;
 }
 
-.item > h1 {
+.itemContainer {
+  padding: 10px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+
+}
+
+h1 {
+  margin: 0px;
+  margin-bottom:5px;
+  padding: 10px;
   background-color: rgb(27, 165, 22);
+  border-radius: 5px;
+}
+
+.searchBox {
+  margin-bottom:5px;
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.searchBox > p {
+  margin:0px;
+  padding: 0px;
+}
+.finePrint {
+  font-size: .7em;
+}
+.addBox {
+  margin-bottom:5px;
+  padding: 10px;
+  background-color:dimgray;
+  color: #fff;
+  border-radius: 5px;
 }
