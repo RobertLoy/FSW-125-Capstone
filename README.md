@@ -22,6 +22,27 @@ I am the instructor for the class. I bring almost two decades of experience in s
 - Postman for testing API
 - Chrome browser for testing frontend
 
+## Folders/ Files
+Everything is in the Master Branch
+
+**Folder:Client (React files)**
+- package.json
+  - src>index.js
+  - src>App.js
+  - src>App.css
+  - src>components>Item.js
+  - src>components>ItemFormHandler.js
+  - src>components>SearchFormHandler.js
+  - src>images>logo192.png
+  
+**Folder: Server (Express files)**
+  - server.js
+  - Routers>teamsRouter.js
+
+The client folder holds all the React files with the index.js being the entry point.  The index.js then calls in the App.js using the import on line 3. App.js then brings in all the other files needed to build the page including App.cs on line 13, the image on line 10, and the item and form handlers on lines 5-7. All the calls to the Express pieces are handled with the Axios pieces on lines 26-76, and the display of the page and items are done on 95-114.  Each item is loaded according to item.js from lines 84-91.
+
+The server folder holds all the Express files withj server being the entry point. Server.js has the listener and the middleware to send the requests to the appropriate Router file, which in this case is teamRouter.js in the Router folder. The teamsRouter.js creates and JSON Array of teams and then performs the correct HTTP request verb below including GET, PUT, POST, and DELETE and fucntionality for the SEARCH which is done as a GET.
+
 ## Implementation instructions
 1. Install Node 
 2. Run npm install nodemon
